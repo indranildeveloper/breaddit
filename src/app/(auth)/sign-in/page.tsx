@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Link from "next/link";
-// import { ChevronLeft } from "lucide-react";
+import { MdOutlineChevronLeft } from "react-icons/md";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/Button";
 import SignIn from "@/components/auth/SignIn";
@@ -16,7 +16,7 @@ const SignInPage: FC = () => {
             "self-start -mt-20",
           )}
         >
-          {/* <ChevronLeft className="mr-2 h-4 w-4" /> */}
+          <MdOutlineChevronLeft size={22} />
           Go Home
         </Link>
 

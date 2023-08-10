@@ -7,6 +7,7 @@ import Navbar from "@/components/shared/Navbar";
 import { Toaster } from "@/components/ui/Toaster";
 
 import "@/styles/globals.css";
+import "@/styles/editor.css";
 
 export const metadata: Metadata = {
   title: "Breadit",

@@ -3,7 +3,7 @@
 import { FC, ReactElement } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-// import { Icons } from "./Icons";
+import { Icons } from "./Icons";
 import { buttonVariants } from "../ui/Button";
 import UserAccountNav from "../auth/UserAccountNav";
 
@@ -15,7 +15,7 @@ const Navbar: FC = (): ReactElement => {
       <div className="container max-w-7xl h-full mx-auto flex items-center justify-between gap-2">
         {/* logo */}
         <Link href="/" className="flex gap-2 items-center">
-          {/* <Icons.logo className="h-8 w-8 sm:h-6 sm:w-6" /> */}
+          <Icons.logo className="h-8 w-8 sm:h-6 sm:w-6" />
           <p className="hidden text-zinc-700 text-sm font-medium md:block">
             Breadit
           </p>

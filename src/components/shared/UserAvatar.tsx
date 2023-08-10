@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import { User } from "next-auth";
 import { Avatar, AvatarFallback } from "../ui/Avatar";
-// import { Icons } from "./Icons";
+import { Icons } from "./Icons";
 import { AvatarProps } from "@radix-ui/react-avatar";
 
 interface UserAvatarProps extends AvatarProps {
@@ -24,7 +24,7 @@ const UserAvatar: FC<UserAvatarProps> = ({ user, ...props }) => {
       ) : (
         <AvatarFallback>
           <span className="sr-only">{user?.name}</span>
-          {/* <Icons.user className="h-4 w-4" /> */}
+          <Icons.user className="h-4 w-4" />
         </AvatarFallback>
       )}
     </Avatar>

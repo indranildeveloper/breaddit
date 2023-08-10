@@ -4,7 +4,7 @@ import { FC, HTMLAttributes, useState } from "react";
 import { signIn } from "next-auth/react";
 import { Button } from "../ui/Button";
 import { cn } from "@/lib/utils";
-// import { Icons } from "../shared/Icons";
+import { Icons } from "../shared/Icons";
 import { useToast } from "@/hooks/useToast";
 
 interface UserAuthFormProps extends HTMLAttributes<HTMLDivElement> {}
@@ -34,10 +34,11 @@ const UserAuthForm: FC<UserAuthFormProps> = ({ className, ...props }) => {
       <Button
         onClick={loginWithGoogle}
         isLoading={isLoading}
-        size="sm"
+        size="default"
         className="w-full"
+        variant="outline"
       >
-        {/* {isLoading ? null : <Icons.google className="h-4 w-4 mr-2" />} */}
+        {isLoading ? null : <Icons.google className="h-5 w-5 mr-2" />}
         Google
       </Button>
     </div>

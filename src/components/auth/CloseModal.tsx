@@ -2,7 +2,8 @@
 
 import { FC } from "react";
 import { useRouter } from "next/navigation";
-// import { X } from "lucide-react";
+import { MdClose } from "react-icons/md";
+
 import { Button } from "../ui/Button";
 
 const CloseModal: FC = () => {
@@ -15,7 +16,7 @@ const CloseModal: FC = () => {
       aria-label="close-modal"
       onClick={() => router.back()}
     >
-      {/* <X className="h-4 w-4" /> */}X
+      <MdClose size={20} />
     </Button>
   );
 };

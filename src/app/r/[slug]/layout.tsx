@@ -104,8 +104,8 @@ const SubredditPageLayout: FC<SubredditPageLayoutProps> = async ({
               <Link
                 href={`/r/${slug}/submit`}
                 className={buttonVariants({
-                  variant: "outline",
-                  className: "w-full mb-6",
+                  variant: "default",
+                  className: "w-full mb-4",
                 })}
               >
                 Create Post

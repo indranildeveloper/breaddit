@@ -6,7 +6,8 @@ import UserAvatar from "../shared/UserAvatar";
 import { useSession } from "next-auth/react";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
-// import { ImageIcon, Link2 } from "lucide-react";
+import { AiOutlineLink } from "react-icons/ai";
+import { BiImageAdd } from "react-icons/bi";
 
 const MiniCreatePost: FC = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const MiniCreatePost: FC = () => {
 
   return (
     <li className="overflow-hidden rounded-md bg-white shadow">
-      <div className="h-full px-6 py-4 flex justify-between gap-6">
+      <div className="h-full px-6 py-4 flex justify-between gap-2">
         <div className="relative">
           <UserAvatar
             user={{
@@ -37,13 +38,13 @@ const MiniCreatePost: FC = () => {
           variant="ghost"
           onClick={() => router.push(`${pathname}/submit`)}
         >
-          {/* <ImageIcon className="text-zinc-600" /> */}
+          <BiImageAdd className="text-zinc-600" size={20} />
         </Button>
         <Button
           variant="ghost"
           onClick={() => router.push(`${pathname}/submit`)}
         >
-          {/* <Link2 className="text-zinc-600" /> */}
+          <AiOutlineLink className="text-zinc-600" size={20} />
         </Button>
       </div>
     </li>
