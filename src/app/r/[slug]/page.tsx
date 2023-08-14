@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
 import { INFINITE_SCROLLING_PAGINATION_RESULT } from "@/constants/config";
 import MiniCreatePost from "@/components/post/MiniCreatePost";
+import PostFeed from "@/components/post/PostFeed";
 
 interface SubredditPageProps {
   params: {
@@ -38,7 +39,7 @@ const SubredditPage: FC<SubredditPageProps> = async ({ params }) => {
       </h1>
       <MiniCreatePost />
 
-      {/* TODO: Show posts in user feed */}
+      <PostFeed initialPosts={subreddit.posts} subredditName={subreddit.name} />
     </>
   );
 };

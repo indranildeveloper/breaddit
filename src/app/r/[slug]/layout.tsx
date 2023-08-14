@@ -104,7 +104,7 @@ const SubredditPageLayout: FC<SubredditPageLayoutProps> = async ({
               <Link
                 href={`/r/${slug}/submit`}
                 className={buttonVariants({
-                  variant: "secondary",
+                  variant: "default",
                   className: "w-full mb-4",
                 })}
               >
