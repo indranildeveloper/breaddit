@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { Icons } from "./Icons";
 import { buttonVariants } from "../ui/Button";
 import UserAccountNav from "../auth/UserAccountNav";
+import SearchBar from "./SearchBar";
 
 const Navbar: FC = (): ReactElement => {
   const { data: session } = useSession();
@@ -21,7 +22,8 @@ const Navbar: FC = (): ReactElement => {
           </p>
         </Link>
 
-        {/* search bar */}
+        <SearchBar />
+
         {session?.user ? (
           <UserAccountNav user={session?.user} />
         ) : (
