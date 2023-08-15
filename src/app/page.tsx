@@ -15,7 +15,7 @@ const HomePage = async () => {
         {session ? <CustomFeed /> : <GeneralFeed />}
 
         {/* subreddit info */}
-        <div className="overflow-hidden h-fit rounded-lg border border-gray-200 order-first md:order-last">
+        <div className="overflow-hidden h-fit rounded-md border border-gray-200 order-first md:order-last">
           <div className="bg-emerald-100 px-6 py-4">
             <p className="font-semibold py-3 flex items-center gap-1.5">
               <AiOutlineHome size={20} />

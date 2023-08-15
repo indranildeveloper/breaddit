@@ -15,9 +15,9 @@ const MiniCreatePost: FC = () => {
   const { data: session } = useSession();
 
   return (
-    <li className="overflow-hidden rounded-md bg-white shadow">
-      <div className="h-full px-6 py-4 flex justify-between gap-2">
-        <div className="relative">
+    <section className="overflow-hidden rounded-md bg-white shadow">
+      <div className="h-full p-4 flex justify-between gap-1">
+        <div className="relative mr-2">
           <UserAvatar
             user={{
               name: session?.user.name || null,
@@ -47,7 +47,7 @@ const MiniCreatePost: FC = () => {
           <AiOutlineLink className="text-zinc-600" size={20} />
         </Button>
       </div>
-    </li>
+    </section>
   );
 };
 
