@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 import axios from "axios";
 import { useIntersection } from "@mantine/hooks";
 import { ExtendedPost } from "@/types/db";
@@ -8,6 +8,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { INFINITE_SCROLLING_PAGINATION_RESULT } from "@/constants/config";
 import { useSession } from "next-auth/react";
 import Post from "./Post";
+import { LuLoader2 } from "react-icons/lu";
 
 interface PostFeedProps {
   initialPosts: ExtendedPost[];
@@ -18,19 +19,17 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
   const { data: session } = useSession();
   const lastPostRef = useRef<HTMLElement>(null);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { ref, entry } = useIntersection({
     root: lastPostRef.current,
     threshold: 1,
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
     ["infinite-query"],
     async ({ pageParam = 1 }) => {
       const query =
         `/api/posts?limit=${INFINITE_SCROLLING_PAGINATION_RESULT}&page=${pageParam}` +
-        (!!subredditName ? `&subredditname=${subredditName}` : "");
+        (!!subredditName ? `&subredditName=${subredditName}` : "");
 
       const { data } = await axios.get(query);
       return data as ExtendedPost[];
@@ -42,6 +41,12 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
       initialData: { pages: [initialPosts], pageParams: [1] },
     },
   );
+
+  useEffect(() => {
+    if (entry?.isIntersecting) {
+      fetchNextPage();
+    }
+  }, [entry, fetchNextPage]);
 
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts;
 
@@ -84,6 +89,12 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
           );
         }
       })}
+
+      {isFetchingNextPage && (
+        <li className="flex justify-center">
+          <LuLoader2 className="w-6 h-6 text-zinc-500 animate-spin" />
+        </li>
+      )}
     </ul>
   );
 };
