@@ -1,3 +1,5 @@
+"use client";
+
 import { FC } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -36,6 +38,8 @@ const EditorOutput: FC<EditorOutputProps> = ({ content }) => {
     />
   );
 };
+
+// TODO: make separate components
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CustomImageRenderer({ data }: any) {
