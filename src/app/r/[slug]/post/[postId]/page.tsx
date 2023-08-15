@@ -1,13 +1,15 @@
 import { FC, Suspense } from "react";
 import { notFound } from "next/navigation";
 import { redis } from "@/lib/redis";
+import { LuLoader2 } from "react-icons/lu";
+import { db } from "@/lib/db";
 import { CachedPost } from "@/types/redis";
 import { Post, User, Vote } from "@prisma/client";
-import { db } from "@/lib/db";
 import PostVoteShell from "@/components/post/postVote/PostVoteShell";
 import PostVoteServer from "@/components/post/postVote/PostVoteServer";
 import { formatTimeToNow } from "@/lib/utils";
 import EditorOutput from "@/components/post/EditorOutput";
+import CommentsSection from "@/components/comments/CommentsSection";
 
 interface SinglePostPageProps {
   params: {
@@ -58,7 +60,7 @@ const SinglePostPage: FC<SinglePostPageProps> = async ({ params }) => {
           />
         </Suspense>
 
-        <div className="sm:w-0 w-full flex-1 bg-white p-4 rounded-sm">
+        <div className="sm:w-0 w-full flex-1 bg-white p-4 rounded-sm shadow">
           <p className="max-h-40 mt-1 truncate text-xs text-gray-500">
             Posted By u/{post?.author.username ?? cachedPost.authorUsername}
             <span className="px-1">
@@ -72,6 +74,14 @@ const SinglePostPage: FC<SinglePostPageProps> = async ({ params }) => {
           </h1>
 
           <EditorOutput content={post?.content ?? cachedPost.content} />
+
+          <Suspense
+            fallback={
+              <LuLoader2 size={40} className="animate-spin text-zinc-500" />
+            }
+          >
+            <CommentsSection postId={post?.id ?? cachedPost.id} />
+          </Suspense>
         </div>
       </div>
     </div>
