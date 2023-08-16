@@ -3,10 +3,10 @@
 Full Stack web app built with [NextJS](https://nextjs.org/) and deployed with [Vercel](https://vercel.com/).
 
 
-<div style="display:flex; gap: 10px; height: 140px">
+<div style="display: flex; flex-direction: row; gap: 10px; height: 100px">
 
-<img src="./screenshots/nextjs.png" />
-<img src="./screenshots/vercel-logo.jpg" />
+<img src="./screenshots/nextjs.png" height="100" />
+<img src="./screenshots/vercel-logo.jpg" height="100" />
 
 </div>
 
