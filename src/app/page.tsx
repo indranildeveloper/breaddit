@@ -5,6 +5,9 @@ import { getAuthSession } from "@/lib/auth";
 import CustomFeed from "@/components/home/CustomFeed";
 import GeneralFeed from "@/components/home/GeneralFeed";
 
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+
 const HomePage = async () => {
   const session = await getAuthSession();
 

@@ -11,7 +11,7 @@ export const useCustomToast = () => {
       action: (
         <Link
           href="/sign-in"
-          className={buttonVariants({ variant: "outline" })}
+          className={buttonVariants({ variant: "secondary" })}
           onClick={() => dismiss()}
         >
           Log In

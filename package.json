@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postinstall": "prisma generate",
     "lint:check": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --ext .ts,.tsx ./src --no-error-on-unmatched-pattern --fix",
     "prettier": "prettier \"**/*.{json,ts,tsx}\"",
